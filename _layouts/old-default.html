@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} — EXD{% else %}EXD — Experience Design Practice{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="stylesheet" href="{{ '/assets/css/old-main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  {% include old-header.html %}
+  {{ content }}
+  {% include old-footer.html %}
+  <script src="{{ '/assets/js/old-main.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

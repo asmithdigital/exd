@@ -1,0 +1,53 @@
+- n: "01"
+  name: Discovery & Research
+  accent: coral
+  description: "Before anything gets built, we find out what's actually stopping people — through research, not assumption."
+  detail: "We run interviews, diary studies, and contextual research to surface what real people actually experience. Then we synthesise it into something the whole team can act on."
+  deliverables: [Customer interviews, Diary studies, Synthesis workshops, Opportunity framing]
+  img: https://images.unsplash.com/photo-1573496799515-eebbb63814f2?w=700&h=520&fit=crop&auto=format
+  img_alt: Researcher conducting a user interview
+
+- n: "02"
+  name: Service Design
+  accent: teal
+  description: "We map the whole journey, not just the screen, so a fix holds up end to end."
+  detail: "Most digital problems are service problems in disguise. We work across the policy, process, and technology layers to design something that holds together when it meets reality."
+  deliverables: [Service blueprints, Stakeholder workshops, Policy alignment, Pilot design]
+  img: https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=520&fit=crop&auto=format
+  img_alt: Team mapping a service journey on a wall
+
+- n: "03"
+  name: UX & Product Design
+  accent: amber
+  description: "Interfaces designed to work the first time a person meets them, not the third redesign after launch."
+  detail: "We design from research outward — never from convention inward. Every interaction is tested before it ships, and we stay close to engineering through delivery."
+  deliverables: [UX design, UI design, Usability testing, Interaction prototypes]
+  img: https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=700&h=520&fit=crop&auto=format
+  img_alt: Designer sketching wireframes
+
+- n: "04"
+  name: Content Design
+  accent: coral
+  description: "Words that carry their own weight, written with the interface, tested like everything else we ship."
+  detail: "Content isn't a polish pass at the end. It's part of the design. We write interface copy alongside the UX, test it with users, and make sure it works for everyone."
+  deliverables: [Interface copy, Microcopy systems, Plain language review, Content testing]
+  img: https://images.unsplash.com/photo-1455390582262-044cdead277a?w=700&h=520&fit=crop&auto=format
+  img_alt: Writing and content notes
+
+- n: "05"
+  name: Design Systems
+  accent: teal
+  description: "Consistency at scale, so quality doesn't depend on who happened to be free that week."
+  detail: "We build design systems that engineering teams can actually use — token-based, documented, and maintained alongside the product rather than ahead of it."
+  deliverables: [Component libraries, Design tokens, Documentation, Governance models]
+  img: https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=700&h=520&fit=crop&auto=format
+  img_alt: Component design and system work
+
+- n: "06"
+  name: Measurement
+  accent: amber
+  description: "Every engagement ends with a number, not a guess, and a way to track it after we're gone."
+  detail: "We define what success looks like at the start, instrument the right things during delivery, and make sure the team has what it needs to keep tracking afterwards."
+  deliverables: [Success metrics, Analytics setup, Baseline measurement, Post-launch tracking]
+  img: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=520&fit=crop&auto=format
+  img_alt: Data and analytics dashboard

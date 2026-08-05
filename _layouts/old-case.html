@@ -1,0 +1,69 @@
+---
+layout: old-default
+nav_id: work
+---
+{% assign c = site.data.cases | where: "id", page.case_id | first %}
+<main>
+
+  <section class="section card-bg section-pad-sm" style="border-top:none;">
+    <div class="wrap">
+      <a href="{{ '/old/work/' | relative_url }}" class="muted" style="font-weight:500; font-size:.9rem; display:inline-flex; gap:.5rem; margin-bottom:2.5rem;">← All work</a>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; margin-bottom:1.25rem;">
+        <span class="pill-label text-{{ c.accent }}" style="text-transform:uppercase;">{{ c.sector }}</span>
+        <span class="font-mono muted" style="font-size:.75rem;">{{ c.year }}</span>
+      </div>
+      <h1 class="h-page" style="margin-bottom:1rem;">{{ c.client }}</h1>
+      <p style="font-weight:500; font-size:clamp(1.05rem,2vw,1.4rem); color:var(--muted); max-width:44ch; line-height:1.4;">{{ c.headline }}</p>
+    </div>
+  </section>
+
+  <div class="photo-strip" style="background:#C4C0B8;">
+    <img src="{{ c.img }}" alt="{{ c.img_alt }}">
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="case-body-grid">
+        <div class="case-body-main">
+          <div style="margin-bottom:2.5rem;">
+            <p class="pill-label muted" style="margin-bottom:1rem;">The situation</p>
+            <p class="muted" style="font-size:.95rem; max-width:44rem;">{{ c.situation }}</p>
+          </div>
+          <div style="margin-bottom:2.5rem;">
+            <p class="pill-label muted" style="margin-bottom:1rem;">What we did</p>
+            <p class="muted" style="font-size:.95rem; max-width:44rem;">{{ c.what_we_did }}</p>
+          </div>
+          <div>
+            <p class="pill-label muted" style="margin-bottom:1rem;">The outcome</p>
+            <p class="muted" style="font-size:.95rem; max-width:44rem;">{{ c.outcome }}</p>
+          </div>
+        </div>
+        <div class="case-body-side">
+          <p class="pill-label muted" style="margin-bottom:1.25rem;">Scope</p>
+          <div style="display:flex; flex-direction:column; gap:.5rem; margin-bottom:2.5rem;">
+            {% for s in c.scope %}
+            <span style="font-size:.9rem; padding:.35rem 0; border-bottom:1px solid var(--border);">{{ s }}</span>
+            {% endfor %}
+          </div>
+          <p class="pill-label muted" style="margin-bottom:1.25rem;">Results</p>
+          {% for m in c.metrics %}
+          <div class="metric-card border-{{ c.accent }}">
+            <p class="val text-{{ c.accent }}">{{ m.value }}</p>
+            <p class="lab">{{ m.label }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="padding:3rem 0 4rem;">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:2rem;">
+        <p class="muted" style="font-size:.95rem;">A project like this starts with a conversation.</p>
+        <a href="{{ '/old/start-a-project/' | relative_url }}" class="btn btn-coral">Start a project →</a>
+      </div>
+    </div>
+  </section>
+
+</main>

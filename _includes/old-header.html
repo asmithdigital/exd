@@ -1,0 +1,35 @@
+<header class="site-header" id="siteHeader">
+  <div class="nav-desktop wrap">
+    <a href="{{ '/old/' | relative_url }}" class="logo-mark">EXD</a>
+    <div style="display:flex; align-items:center; gap:1.25rem;">
+      <nav class="nav-links">
+        {% for item in site.data['old-nav'] %}
+          <a href="{{ item.url | relative_url }}" class="nav-link{% if page.nav_id == item.id %} active{% endif %}">{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+      <a href="{{ '/admin/login.html' | relative_url }}" class="team-login-desktop">Team login</a>
+      <a href="{{ '/old/start-a-project/' | relative_url }}" class="btn btn-dark" style="font-size:.9rem; padding:.7rem 1.5rem;">Let's Talk</a>
+    </div>
+  </div>
+
+  <div class="nav-mobile-row">
+    <a href="{{ '/old/' | relative_url }}" class="logo-mark">EXD</a>
+    <div style="display:flex; align-items:center; gap:.75rem;">
+      <a href="{{ '/old/start-a-project/' | relative_url }}" class="btn btn-dark" style="font-size:.75rem; padding:.5rem 1rem;">Let's Talk</a>
+      <button class="dot-toggle" id="burgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-drawer" id="navDrawer">
+    <nav class="nav-drawer-inner">
+      {% for item in site.data['old-nav'] %}
+        <a href="{{ item.url | relative_url }}"{% if page.nav_id == item.id %} class="active"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+      <a href="{{ '/admin/login.html' | relative_url }}" class="team-login">Team login →</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+title: EXD
+description: An experience design practice. Discovery, design, and delivery — one team, one thread, from first conversation to shipped result.
+url: "https://asmithdigital.github.io"
+baseurl: "/exd"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Everything under /admin is the internal tool — plain static HTML/JS,
+# not part of the Jekyll page build, but still served by GitHub Pages.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

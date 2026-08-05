@@ -1,0 +1,39 @@
+<footer class="site-footer">
+  <div class="wrap footer-pad">
+    <div style="display:grid; grid-template-columns:63% 37%; gap:2rem; align-items:flex-start; padding-bottom:2rem; border-bottom:1px solid var(--border);">
+      <p class="footer-brand" style="color:var(--fg);">EXD</p>
+      <div style="max-width:26rem;">
+        <p style="color:var(--fg); font-size:1.375rem; line-height:1.26;">EXD is an experience design practice that works closely with teams across the business.<br>
+        <a href="mailto:hello@exd.co" style="text-decoration:underline;">hello@exd.co</a></p>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:2rem; padding:2.5rem 0;">
+      <div style="max-width:16rem;">
+        <p class="muted" style="font-size:.9rem;">By submitting a project request you agree with our <a href="#" style="text-decoration:underline;">Privacy Policy</a>.</p>
+      </div>
+      <div class="footer-grid-4" style="grid-template-columns:repeat(3,auto); gap:3rem;">
+        <div>
+          <p class="footer-label" style="color:var(--muted-light);">Pages</p>
+          {% for item in site.data['old-nav'] %}
+            <a href="{{ item.url | relative_url }}" class="footer-link" style="color:var(--fg);">{{ item.label }}</a>
+          {% endfor %}
+        </div>
+        <div>
+          <p class="footer-label" style="color:var(--muted-light);">Elsewhere</p>
+          <a href="#" class="footer-link" style="color:var(--fg);">LinkedIn</a>
+          <a href="#" class="footer-link" style="color:var(--fg);">Dribbble</a>
+          <a href="#" class="footer-link" style="color:var(--fg);">Instagram</a>
+        </div>
+        <div>
+          <p class="footer-label" style="color:var(--muted-light);">Work with us</p>
+          <a href="{{ '/old/start-a-project/' | relative_url }}" class="btn btn-coral" style="font-size:.9rem; padding:.75rem 1.5rem;">Start a project →</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top:1px solid var(--border-strong);">
+      <p style="color:var(--muted-light);">Experience Design Practice</p>
+      <a href="{{ '/admin/login.html' | relative_url }}" style="color:var(--muted-light); font-size:.8rem;">Team login →</a>
+      <p style="color:var(--muted-light);">© 2026 EXD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

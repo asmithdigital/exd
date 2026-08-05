@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline — EXD Team</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-brand">
+      <a href="pipeline.html" class="admin-logo">EXD</a>
+      <span class="admin-divider">|</span>
+      <nav class="admin-nav">
+        <a href="pipeline.html" class="active">Pipeline</a>
+        <a href="capacity.html">Capacity</a>
+      </nav>
+    </div>
+    <a href="#" id="logoutLink" class="admin-logout">Log out</a>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-wrap">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.75rem; gap:1rem; flex-wrap:wrap;">
+        <div>
+          <h1 class="admin-title">Project pipeline</h1>
+          <p class="admin-sub" id="summaryLine"></p>
+        </div>
+      </div>
+
+      <div class="status-row" id="statusFilters"></div>
+
+      <div class="pipeline-table">
+        <div class="pt-row pt-head">
+          <span>Requester</span>
+          <span>Need</span>
+          <span>Size</span>
+          <span data-sort="urgency" style="cursor:pointer;">Urgency</span>
+          <span>Expertise</span>
+          <span data-sort="stage" style="cursor:pointer;">Status</span>
+        </div>
+        <div id="tableRows"></div>
+      </div>
+
+      <p style="font-size:.75rem; color:#9CA3AF; margin-top:1rem;">Click any row to view full details. Change status using the dropdown.</p>
+    </div>
+  </main>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script>
+    requireLogin();
+    document.getElementById('logoutLink').addEventListener('click', (e) => { e.preventDefault(); doLogout(); });
+
+    let requests = loadRequests();
+    let filterStage = 'All';
+
+    function counts() {
+      const c = {};
+      STAGES.forEach((s) => { c[s] = requests.filter((r) => r.stage === s).length; });
+      return c;
+    }
+
+    function renderFilters() {
+      const c = counts();
+      const wrap = document.getElementById('statusFilters');
+      wrap.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'status-btn' + (filterStage === 'All' ? ' active-all' : '');
+      allBtn.textContent = `All (${requests.length})`;
+      allBtn.onclick = () => { filterStage = 'All'; render(); };
+      wrap.appendChild(allBtn);
+
+      STAGES.forEach((s) => {
+        const b = STAGE_BADGE[s];
+        const btn = document.createElement('button');
+        btn.className = 'status-btn';
+        btn.textContent = `${s} (${c[s] || 0})`;
+        if (filterStage === s) {
+          btn.style.borderColor = b.color;
+          btn.style.background = b.bg;
+          btn.style.color = b.color;
+        }
+        btn.onclick = () => { filterStage = s; render(); };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderRows() {
+      const rowsEl = document.getElementById('tableRows');
+      rowsEl.innerHTML = '';
+      let rows = filterStage === 'All' ? requests : requests.filter((r) => r.stage === filterStage);
+      rows = [...rows].sort((a, b) => b.submittedAt.localeCompare(a.submittedAt));
+
+      if (rows.length === 0) {
+        rowsEl.innerHTML = '<div style="padding:3rem; text-align:center; color:#9CA3AF; font-size:.875rem;">No requests matching this filter.</div>';
+        return;
+      }
+
+      rows.forEach((req) => {
+        const badge = STAGE_BADGE[req.stage];
+        const row = document.createElement('div');
+        row.className = 'pt-row pt-body';
+        row.innerHTML = `
+          <div>
+            <div class="pt-requester-name">${req.requester}</div>
+            <div class="pt-requester-team">${req.team}</div>
+          </div>
+          <div class="pt-need">${req.need.length > 80 ? req.need.slice(0, 80) + '…' : req.need}</div>
+          <div><span class="pt-size">${SIZE_ABBR[req.size]}</span></div>
+          <div class="pt-urgency" style="color:${URGENCY_COLOR[req.urgency] || '#6B7280'}">${req.urgency}</div>
+          <div class="pt-expertise">${req.expertise.join(', ')}</div>
+          <div></div>
+        `;
+        row.addEventListener('click', () => { window.location.href = 'request.html?id=' + req.id; });
+
+        const statusCell = row.children[5];
+        const select = document.createElement('select');
+        select.className = 'pt-status-select';
+        select.style.borderColor = badge.color;
+        select.style.background = badge.bg;
+        select.style.color = badge.color;
+        STAGES.forEach((s) => {
+          const opt = document.createElement('option');
+          opt.value = s; opt.textContent = s;
+          if (s === req.stage) opt.selected = true;
+          select.appendChild(opt);
+        });
+        select.addEventListener('click', (e) => e.stopPropagation());
+        select.addEventListener('change', (e) => {
+          req.stage = e.target.value;
+          req.history.push({ date: new Date().toISOString().slice(0, 10), action: `Status changed to ${req.stage}`, by: 'You' });
+          saveRequests(requests);
+          render();
+        });
+        statusCell.appendChild(select);
+
+        rowsEl.appendChild(row);
+      });
+    }
+
+    function render() {
+      document.getElementById('summaryLine').textContent = `${requests.length} requests · ${counts()['New'] || 0} new`;
+      renderFilters();
+      renderRows();
+    }
+
+    render();
+  </script>
+</body>
+</html>

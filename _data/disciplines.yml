@@ -1,0 +1,18 @@
+- name: Research
+  description: "User interviews, diary studies, synthesis. Finding out what is actually true before anything else."
+  accent: coral
+- name: Service Design
+  description: "Mapping and redesigning end-to-end journeys across people, policy, and technology."
+  accent: teal
+- name: UX & Product Design
+  description: "Interaction and interface design from concept to component, tested at every stage."
+  accent: amber
+- name: Content Design
+  description: "Interface copy and microcopy designed alongside the UX, not added at the end."
+  accent: teal
+- name: Design Systems
+  description: "Component libraries and design tokens built for engineering, not just Figma."
+  accent: amber
+- name: Business Analysis
+  description: "Mapping technical and organisational constraints so design solutions actually fit the context."
+  accent: coral

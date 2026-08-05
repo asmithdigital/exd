@@ -1,0 +1,35 @@
+- n: "01"
+  phase: Listen
+  accent: coral
+  summary: "Every engagement starts with a conversation about what's really going on, not just what's been asked for."
+  body: "Before we scope anything, we spend time understanding the situation from multiple angles — the person raising the problem, the people affected by it, and the constraints already in play. The brief rarely captures all of this."
+
+- n: "02"
+  phase: Discover
+  accent: teal
+  summary: "A researcher runs interviews. A business analyst maps constraints. Together they surface what's actually true."
+  body: "We don't skip straight to solutions. Discovery is a proper piece of work — user interviews, diary studies, data review, stakeholder mapping. We're looking for the real problem, which is almost never what the brief said it was."
+
+- n: "03"
+  phase: Map
+  accent: amber
+  summary: "A service designer connects what discovery found to where it actually happens across the experience."
+  body: "We map the end-to-end journey — across channels, teams, policies, and handover points. This is where we find the moments that matter and the structural fixes that need to happen before any screen gets designed."
+
+- n: "04"
+  phase: Design
+  accent: coral
+  summary: "UX and content take shape together, structure and words built side by side rather than handed off in sequence."
+  body: "We design in low fidelity until the idea is validated, then build fidelity as confidence grows. We work in short cycles, share work often, and don't design in private and reveal at the end."
+
+- n: "05"
+  phase: Validate
+  accent: teal
+  summary: "Nothing ships on opinion. Ideas get tested with real people before they go any further."
+  body: "Usability testing, concept testing, A/B approaches where appropriate. We go back to real users at every significant junction — not just at the end, and not just to confirm we were right."
+
+- n: "06"
+  phase: Deliver & Measure
+  accent: amber
+  summary: "Work goes live, and its impact gets tracked against the outcome it was meant to move."
+  body: "We stay close through engineering, join sprint ceremonies, and work through QA with the delivery team. We define what success looks like before we start, so we can measure it when we're done."

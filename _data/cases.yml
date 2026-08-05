@@ -1,0 +1,79 @@
+- id: meridian
+  client: Meridian Travel
+  sector: Travel
+  year: "2023"
+  accent: coral
+  headline: "Search to checkout, rebuilt around how people actually plan a trip."
+  situation: "Meridian's booking conversion had plateaued for three years. The team had made a series of individual fixes to the funnel but the overall number wouldn't shift. They came to us with an assumption: the search experience was the problem. We were asked to improve it."
+  what_we_did: "Our first step was to disprove the assumption. Three weeks of user research — diary studies with real travellers, moderated sessions, and a review of session recordings — showed that the drop-off wasn't happening at search. It was happening at date selection and the moment when people tried to change an already-started booking. The booking engine's data model had created an interface structure that mirrored how flights were stored, not how people think about travel. We redesigned the date selection, simplified the modification flow, and reduced the number of steps between finding the right trip and confirming it."
+  outcome: "Checkout abandonment fell 22%. Conversion rate improved 18%. The work took twelve weeks from kick-off to handover."
+  img: https://images.unsplash.com/photo-1686771416537-bf4a4f263d88?w=800&h=560&fit=crop&auto=format
+  img_alt: Two people reviewing research findings at a table
+  metrics:
+    - value: "↓22%"
+      label: Checkout abandonment
+    - value: "↑18%"
+      label: Conversion rate
+    - value: "12 wk"
+      label: Kick-off to handover
+  scope: [Discovery & Research, UX & Product Design, Usability Testing]
+
+- id: northline
+  client: Northline Insurance
+  sector: Insurance
+  year: "2022"
+  accent: teal
+  headline: "Removing the handoffs that send people to the phone."
+  situation: "Northline's digital claims journey was technically complete — you could submit and track a claim entirely online. But most customers called instead of using it, not because they preferred the phone, but because they kept getting stuck. The digital channel was generating call volume instead of reducing it."
+  what_we_did: "We mapped the entire service — not just the digital screens but the full end-to-end journey including what happened when digital failed and a person called in. We found six critical handover moments where the digital experience handed users off to another system, a letter, or a voicemail without telling them what to expect next. Each was a trust failure. We redesigned those six moments to be explicit about what would happen next, who would be in touch, and why — and made the digital confirmation materials match the reality of what happened."
+  outcome: "Call centre inbound volume fell 30% in the six months following launch. Self-serve claims completion improved 41%. Discovery to pilot took eight weeks."
+  img: https://images.unsplash.com/photo-1576153192396-180ecef2a715?w=800&h=560&fit=crop&auto=format
+  img_alt: Designer working on sketches and wireframes
+  metrics:
+    - value: "↓30%"
+      label: Call centre inbound
+    - value: "↑41%"
+      label: Self-serve completion
+    - value: "8 wk"
+      label: Discovery to pilot
+  scope: [Service Design, Discovery & Research, UX & Product Design]
+
+- id: solstice
+  client: Solstice Motors
+  sector: Motoring
+  year: "2023"
+  accent: amber
+  headline: "A breakdown app that works when it matters."
+  situation: "Solstice's roadside assistance app had a 3.1 App Store rating and a consistent pattern in reviews: people couldn't work out what to do next, couldn't find their location to share with the operator, and lost faith in the app at the moment they were most stressed. The in-breakdown experience was the worst possible time for something not to work."
+  what_we_did: "We ran field research with members who had recently experienced a breakdown — both successful digital interactions and ones that had escalated to a phone call. We also tested the current app in simulated high-stress conditions. The diagnosis: the app had been designed for a calm user looking at a phone, not a stressed person standing next to a broken car with one hand free. We redesigned the core flow for one-handed use, reduced the number of decisions a person had to make at the worst moment, and made location-sharing automatic rather than manual."
+  outcome: "App Store rating improved from 3.1 to 4.6 within six months of launch. Support escalations reduced 44%. Task completion in usability testing improved 27%."
+  img: https://images.unsplash.com/photo-1590402494587-44b71d7772f6?w=800&h=560&fit=crop&auto=format
+  img_alt: Person testing a mobile app prototype
+  metrics:
+    - value: "3.1→4.6"
+      label: App Store rating
+    - value: "↓44%"
+      label: Support escalations
+    - value: "↑27%"
+      label: Task completion
+  scope: [Discovery & Research, UX & Product Design, Usability Testing]
+
+- id: harbour
+  client: Harbour Banking Group
+  sector: Financial Services
+  year: "2022"
+  accent: coral
+  headline: "Making business banking feel less like a punishment."
+  situation: "Harbour Banking Group's business current account onboarding was taking an average of eleven working days to complete, during which most applicants received no proactive contact. Drop-out during onboarding was running at 34%. The team wanted to digitise more of the process. We thought the issue was less about digitisation and more about the experience of waiting."
+  what_we_did: "We ran research with small business owners who had recently applied — both those who completed and those who dropped out. The consistent finding: people weren't leaving because the process was too slow. They were leaving because they didn't know where they were in it, didn't know what to do next, and couldn't predict when they'd be done. We redesigned the onboarding experience around transparency rather than speed — giving applicants a clear view of progress, proactive notifications at each stage, and honest estimates of what was left."
+  outcome: "Drop-out during onboarding fell from 34% to 19% without any change to the underlying process speed. NPS for new business customers improved significantly in the six months following."
+  img: https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=800&h=560&fit=crop&auto=format
+  img_alt: People in a meeting discussing a project
+  metrics:
+    - value: "34→19%"
+      label: Onboarding drop-out
+    - value: "+24pt"
+      label: New customer NPS
+    - value: "10 wk"
+      label: Research to launch
+  scope: [Discovery & Research, Service Design, Content Design]
