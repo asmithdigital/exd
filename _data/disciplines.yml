@@ -1,0 +1,18 @@
+- name: Design & UX
+  description: "Websites, apps, and interfaces that are built around what your customers are actually trying to do."
+  accent: coral
+- name: Customer journey mapping
+  description: "Making the real customer experience visible, so decisions are based on evidence, not guesswork."
+  accent: teal
+- name: AI, explained plainly
+  description: "Working out where AI genuinely helps your business, and setting it up without the jargon or lock-in."
+  accent: amber
+- name: Front-end development
+  description: "Twenty years of hands-on build experience — I can talk to developers as one, or build it myself."
+  accent: teal
+- name: Design systems
+  description: "Consistency at scale, built and governed properly, so quality doesn't depend on who's in the room."
+  accent: amber
+- name: Project leadership
+  description: "Leading bigger digital work, and bringing in trusted specialists exactly when the work calls for it."
+  accent: coral

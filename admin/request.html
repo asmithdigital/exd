@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request detail — EXD Team</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-brand">
+      <a href="pipeline.html" class="admin-logo">EXD</a>
+      <span class="admin-divider">|</span>
+      <nav class="admin-nav">
+        <a href="pipeline.html" class="active">Pipeline</a>
+        <a href="capacity.html">Capacity</a>
+      </nav>
+    </div>
+    <a href="#" id="logoutLink" class="admin-logout">Log out</a>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-wrap-narrow">
+      <a href="pipeline.html" style="font-size:.82rem; color:#6B7280; display:inline-flex; gap:.4rem; margin-bottom:1.5rem;">← Pipeline</a>
+
+      <div id="requestContent"></div>
+    </div>
+  </main>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script>
+    requireLogin();
+    document.getElementById('logoutLink').addEventListener('click', (e) => { e.preventDefault(); doLogout(); });
+
+    const params = new URLSearchParams(window.location.search);
+    const reqId = params.get('id');
+    let requests = loadRequests();
+    let request = requests.find((r) => r.id === reqId);
+
+    function field(label, value, isList) {
+      let inner;
+      if (isList) {
+        inner = `<div>${value.map((v) => `<span class="tag-pill">${v}</span>`).join('')}</div>`;
+      } else {
+        inner = `<p class="field-value">${value}</p>`;
+      }
+      return `<div><p class="field-label">${label}</p>${inner}</div>`;
+    }
+
+    function render() {
+      const el = document.getElementById('requestContent');
+      if (!request) {
+        el.innerHTML = '<p style="color:#9CA3AF;">Request not found.</p>';
+        return;
+      }
+      const badge = STAGE_BADGE[request.stage];
+
+      el.innerHTML = `
+        <div class="detail-card">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+            <div>
+              <p class="detail-meta">${request.submittedAt} · ${request.team}</p>
+              <h1 class="detail-heading">${request.need}</h1>
+              <p style="font-size:.875rem; color:#6B7280; margin-top:.3rem;">Submitted by ${request.requester}</p>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:.5rem; align-items:flex-end;">
+              <p class="detail-meta" style="margin-bottom:0;">Status</p>
+              <select id="stageSelect" class="pt-status-select" style="border-width:2px; border-color:${badge.color}; background:${badge.bg}; color:${badge.color};">
+                ${STAGES.map((s) => `<option value="${s}" ${s === request.stage ? 'selected' : ''}>${s}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <div style="display:flex; gap:.4rem; align-items:center;"><span class="field-label" style="margin-bottom:0;">Urgency</span><span class="tag-pill">${request.urgency}</span></div>
+            <div style="display:flex; gap:.4rem; align-items:center;"><span class="field-label" style="margin-bottom:0;">Size</span><span class="tag-pill">${request.size}</span></div>
+            <div style="display:flex; gap:.4rem; align-items:center; flex-wrap:wrap;"><span class="field-label" style="margin-bottom:0;">Expertise</span>${request.expertise.map((e) => `<span class="tag-pill">${e}</span>`).join('')}</div>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <div class="detail-card">
+              ${field('What they need', request.need)}
+              <div style="height:1.25rem;"></div>
+              ${field('Context', request.context)}
+              <div style="height:1.25rem;"></div>
+              ${field('Expertise requested', request.expertise, true)}
+              ${request.declineReason ? `
+                <div style="margin-top:1.25rem; padding:1rem; background:#FEF2F2; border-radius:7px; border-left:3px solid #EF4444;">
+                  <p style="font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#991B1B; margin-bottom:.4rem;">Decline reason</p>
+                  <p style="font-size:.875rem; color:#7F1D1D; line-height:1.55; margin:0;">${request.declineReason}</p>
+                </div>` : ''}
+            </div>
+
+            <div class="detail-card">
+              <p class="field-label">Team notes (${request.notes.length})</p>
+              ${request.notes.length === 0 ? '<p style="font-size:.875rem; color:#9CA3AF;">No notes yet.</p>' : ''}
+              <div id="notesList"></div>
+              <div style="display:flex; flex-direction:column; gap:.6rem; margin-top:${request.notes.length ? '0' : '1rem'};">
+                <textarea id="noteInput" class="note-textarea" rows="3" placeholder="Add a note for the team..."></textarea>
+                <button id="addNoteBtn" style="align-self:flex-start; font-weight:700; font-size:.85rem; padding:.6rem 1.25rem; background:#111827; color:#fff; border:none; border-radius:6px;">Add note</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <p class="field-label">History</p>
+            <div id="historyList"></div>
+          </div>
+        </div>
+      `;
+
+      const notesList = document.getElementById('notesList');
+      notesList.innerHTML = request.notes.map((n) => `
+        <div class="note-item">
+          <div><span class="note-author">${n.author}</span><span class="note-date">${n.date}</span></div>
+          <p style="font-size:.875rem; color:#374151; line-height:1.55; margin:.3rem 0 0;">${n.text}</p>
+        </div>
+      `).join('');
+
+      const historyList = document.getElementById('historyList');
+      historyList.innerHTML = [...request.history].reverse().map((h) => `
+        <div class="history-item">
+          <div class="history-action">${h.action}</div>
+          <div class="history-by">${h.by} · ${h.date}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('stageSelect').addEventListener('change', (e) => {
+        request.stage = e.target.value;
+        request.history.push({ date: new Date().toISOString().slice(0, 10), action: `Status changed to ${request.stage}`, by: 'You' });
+        saveRequests(requests);
+        render();
+      });
+
+      document.getElementById('addNoteBtn').addEventListener('click', () => {
+        const val = document.getElementById('noteInput').value.trim();
+        if (!val) return;
+        request.notes.push({ author: 'You', text: val, date: new Date().toISOString().slice(0, 10) });
+        saveRequests(requests);
+        render();
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>

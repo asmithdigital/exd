@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team capacity — EXD Team</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-brand">
+      <a href="pipeline.html" class="admin-logo">EXD</a>
+      <span class="admin-divider">|</span>
+      <nav class="admin-nav">
+        <a href="pipeline.html">Pipeline</a>
+        <a href="capacity.html" class="active">Capacity</a>
+      </nav>
+    </div>
+    <a href="#" id="logoutLink" class="admin-logout">Log out</a>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-wrap-narrow">
+      <div style="margin-bottom:2rem;">
+        <h1 class="admin-title">Team capacity</h1>
+        <p class="admin-sub">At-a-glance view of how stretched each discipline is right now.</p>
+      </div>
+
+      <div style="display:flex; gap:1.25rem; margin-bottom:1.75rem; flex-wrap:wrap;" id="legend"></div>
+      <div class="capacity-grid" id="capacityGrid"></div>
+
+      <p style="font-size:.75rem; color:#9CA3AF; margin-top:1.5rem;">This is a qualitative snapshot, not a live resourcing tool. Use it when deciding whether to accept new requests.</p>
+    </div>
+  </main>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script>
+    requireLogin();
+    document.getElementById('logoutLink').addEventListener('click', (e) => { e.preventDefault(); doLogout(); });
+
+    const STATUS_CONFIG = {
+      'Available':       { color: '#065F46', bg: '#D1FAE5', bar: '#34D399', pct: 35 },
+      'Getting busy':    { color: '#92400E', bg: '#FEF3C7', bar: '#FBBF24', pct: 65 },
+      'Fully stretched': { color: '#991B1B', bg: '#FEE2E2', bar: '#F87171', pct: 92 },
+    };
+
+    document.getElementById('legend').innerHTML = Object.entries(STATUS_CONFIG).map(([label, cfg]) => `
+      <div style="display:flex; align-items:center; gap:.5rem;">
+        <span style="width:10px; height:10px; border-radius:50%; background:${cfg.bar}; display:inline-block;"></span>
+        <span style="font-size:.8rem; color:#6B7280;">${label}</span>
+      </div>
+    `).join('');
+
+    document.getElementById('capacityGrid').innerHTML = CAPACITY_DATA.map((entry) => {
+      const cfg = STATUS_CONFIG[entry.status];
+      return `
+        <div class="capacity-card" style="border-top:3px solid ${cfg.bar};">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; gap:.5rem; flex-wrap:wrap;">
+            <h2 style="font-weight:700; font-size:.975rem; color:#111827; letter-spacing:-.01em; margin:0;">${entry.specialty}</h2>
+            <span style="font-size:.72rem; font-weight:700; padding:.2rem .6rem; border-radius:999px; background:${cfg.bg}; color:${cfg.color}; white-space:nowrap;">${entry.status}</span>
+          </div>
+          <div class="capacity-bar-track"><div class="capacity-bar-fill" style="width:${cfg.pct}%; background:${cfg.bar};"></div></div>
+          <div style="display:flex; gap:1.25rem; margin-bottom:1rem;">
+            <div>
+              <p style="font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#9CA3AF; margin:0 0 .2rem;">Active</p>
+              <p style="font-weight:700; font-size:1.3rem; color:#111827; margin:0; line-height:1;">${entry.activeProjects}</p>
+              <p style="font-size:.7rem; color:#9CA3AF; margin:0;">projects</p>
+            </div>
+            <div>
+              <p style="font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#9CA3AF; margin:0 0 .2rem;">People</p>
+              <p style="font-weight:700; font-size:1.3rem; color:#111827; margin:0; line-height:1;">${entry.people.length}</p>
+              <p style="font-size:.7rem; color:#9CA3AF; margin:0;">${entry.people.length === 1 ? 'person' : 'people'}</p>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:.35rem;">
+            ${entry.people.map((p) => `
+              <div style="display:flex; align-items:center; gap:.5rem;">
+                <span class="avatar-circle">${p.split(' ').map((n) => n[0]).join('')}</span>
+                <span style="font-size:.82rem; color:#374151;">${p}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+  </script>
+</body>
+</html>

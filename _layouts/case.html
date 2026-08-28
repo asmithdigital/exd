@@ -1,0 +1,52 @@
+---
+layout: default
+nav_id: work
+---
+{% assign c = site.data.cases | where: "id", page.case_id | first %}
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <a href="{{ '/work/' | relative_url }}" class="text-link" style="display:inline-block; margin-bottom:1.5rem;">← All work</a>
+      <span class="eyebrow">{{ c.sector }} · {{ c.year }}</span>
+      <h1 class="display-title">{{ c.client }}</h1>
+      <p class="hero-text">{{ c.headline }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="display:grid; grid-template-columns:1fr 2fr; gap:3rem;">
+      <div>
+        <span class="eyebrow">Results</span>
+        {% for m in c.metrics %}
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-weight:700; font-size:2rem;">{{ m.value }}</div>
+          <div class="muted" style="font-size:.85rem;">{{ m.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div>
+        <div style="margin-bottom:2.5rem;">
+          <h2 style="font-size:1.3rem; font-weight:500; margin-bottom:1rem;">The situation</h2>
+          <p style="font-size:1rem; color:var(--muted-fg);">{{ c.situation }}</p>
+        </div>
+        <div style="margin-bottom:2.5rem;">
+          <h2 style="font-size:1.3rem; font-weight:500; margin-bottom:1rem;">What I did</h2>
+          <p style="font-size:1rem; color:var(--muted-fg);">{{ c.what_we_did }}</p>
+        </div>
+        <div>
+          <h2 style="font-size:1.3rem; font-weight:500; margin-bottom:1rem;">The outcome</h2>
+          <p style="font-size:1rem; color:var(--muted-fg);">{{ c.outcome }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted-bg" style="text-align:center;">
+    <div class="wrap">
+      <h2 class="section-title" style="margin:0 auto 1.5rem; text-align:center;">A project like this starts with a conversation.</h2>
+      <a href="{{ '/#contact' | relative_url }}" class="btn btn-dark">Get in touch →</a>
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,15 @@
+- id: home
+  label: Home
+  url: /
+- id: what-i-do
+  label: What I Do
+  url: /what-i-do/
+- id: how-this-works
+  label: How This Works
+  url: /how-this-works/
+- id: work
+  label: Work
+  url: /work/
+- id: about
+  label: About
+  url: /about/

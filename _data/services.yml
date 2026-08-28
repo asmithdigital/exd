@@ -1,0 +1,44 @@
+- n: "01"
+  name: A website that actually works for your customers
+  accent: "#dbeafe"
+  description: "Not just something that looks good — a site built around what your customers are actually trying to do, so they don't give up halfway through."
+  detail: "Whether it's your first website or a rebuild of something that isn't pulling its weight, I design and build sites that are fast, clear, and built to be found — with a plain-English explanation of every decision along the way."
+  deliverables: [New websites, Website rebuilds, Landing pages, Ongoing improvements]
+  img: https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=700&h=520&fit=crop&auto=format
+  img_alt: Laptop showing a website design
+
+- n: "02"
+  name: Mapping where your customers actually get stuck
+  accent: "#dcfce7"
+  description: "Most businesses can guess where customers drop off. This makes it visible, so you can fix the right thing first instead of guessing."
+  detail: "I map the real journey a customer takes with your business — enquiry, booking, purchase, support — and show you exactly where it breaks down, in a format your whole team can actually use, not a diagram that gets forgotten."
+  deliverables: [Customer journey mapping, Process reviews, Priority roadmaps]
+  img: https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=520&fit=crop&auto=format
+  img_alt: Team mapping a process on a wall
+
+- n: "03"
+  name: Bringing AI in without the jargon or the risk
+  accent: "#fef3c7"
+  description: "You don't need to become a technologist. You need someone who can tell you honestly what's worth doing and what's just hype."
+  detail: "I help you work out where AI actually saves you time or money in your business — and where it doesn't — then set it up properly, in plain language, without locking you into something you don't understand."
+  deliverables: [AI opportunity review, Tool setup, Team training]
+  img: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700&h=520&fit=crop&auto=format
+  img_alt: Person working with AI tools on a laptop
+
+- n: "04"
+  name: Leading a bigger digital project
+  accent: "#ede9fe"
+  description: "If the work is bigger than a website — a full app, a platform, a proper transformation — I lead it, and bring in trusted specialists where the work calls for it."
+  detail: "Twenty years leading design and product teams means I know how to scope a project properly, keep it on track, and bring in the right specialist — a developer, a researcher, a brand designer — exactly when it's needed, not before."
+  deliverables: [Project leadership, Specialist sourcing, Delivery oversight]
+  img: https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=520&fit=crop&auto=format
+  img_alt: Team collaborating around a table
+
+- n: "05"
+  name: Making sense of what to prioritise
+  accent: "#fce7f3"
+  description: "When everything feels urgent, I help you work out what actually moves the needle — and what can wait."
+  detail: "A short, honest look at your business's digital priorities — website, systems, customer experience — with a clear view of what's worth doing now, later, or not at all."
+  deliverables: [Priority reviews, Strategy sessions, Roadmapping]
+  img: https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&h=520&fit=crop&auto=format
+  img_alt: Person reviewing a strategy document

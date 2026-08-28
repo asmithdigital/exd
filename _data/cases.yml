@@ -1,0 +1,63 @@
+- id: journey-mapping
+  client: RAA
+  sector: Motoring & Insurance
+  year: "2024"
+  accent: "#dbeafe"
+  headline: "Making the customer journey visible, not just documented."
+  situation: "Teams across the business had a rough sense of the member journey, but no shared, visual way to see where it was actually breaking down — or to agree on what to fix first."
+  what_we_did: "Built a journey mapping tool from the ground up — phases, metrics, an emotion curve, and prioritised solutions all in one place — so research and delivery teams could point at the same picture and agree on priorities, instead of arguing from different mental models."
+  outcome: "The journey map became the shared reference point across research, design, and delivery — used to prioritise what got built next, not just to document what already existed."
+  metrics:
+    - value: "1"
+      label: "Shared source of truth"
+    - value: "3+"
+      label: "Teams aligned around it"
+  scope: [Journey Mapping, Research, Facilitation]
+
+- id: design-system
+  client: RAA
+  sector: Financial Services & Insurance
+  year: "2023"
+  accent: "#dcfce7"
+  headline: "Consistency at scale, without slowing teams down."
+  situation: "Multiple squads were shipping product independently. Quality held up when the right person was in the room, and dropped when they weren't — nothing forced consistency."
+  what_we_did: "Built and governed a design system from the ground up — components, tokens, and documentation — and got it endorsed through formal architecture review, so it wasn't just a Figma file nobody used, but the way the organisation actually expected products to be built."
+  outcome: "Consistency stopped depending on who was in the room. New squads could ship on-brand, accessible product faster, without a senior designer reviewing every screen."
+  metrics:
+    - value: "Org-wide"
+      label: "Formally endorsed system"
+    - value: "Fewer"
+      label: "Review bottlenecks"
+  scope: [Design Systems, Governance, Component Libraries]
+
+- id: research-ops
+  client: University of Adelaide
+  sector: Higher Education
+  year: "2022"
+  accent: "#fef3c7"
+  headline: "Building a research function from nothing."
+  situation: "There was no consistent way to run, store, or benchmark usability research — every study started from scratch, and nobody could say whether a product was getting better or worse over time."
+  what_we_did: "Established research operations from the ground up, including a benchmarking approach that tracked effectiveness, efficiency, satisfaction, and desirability over time — so research stopped being a one-off activity and became a repeatable practice."
+  outcome: "Usability quality became something the organisation could actually track over time, not just anecdotally reference."
+  metrics:
+    - value: "4"
+      label: "Metrics tracked continuously"
+    - value: "New"
+      label: "Research function built"
+  scope: [Research Operations, Benchmarking, Usability Testing]
+
+- id: ai-orchestration
+  client: Internal Systems
+  sector: Digital Operations
+  year: "2025"
+  accent: "#ede9fe"
+  headline: "Doing more with a shrinking team, without cutting corners."
+  situation: "A shrinking team under budget pressure needed to keep quality high without adding headcount — the constraint wasn't ambition, it was capacity."
+  what_we_did: "Led the build of a working AI orchestration layer — a Slack bot connected via Claude and MCP to design system docs, research findings, and Figma — so the team could query the systems they already had instead of hunting across tools manually."
+  outcome: "Built and validated, with a documented capability matrix separating what worked today from what needed further setup — real leverage for a smaller team, not a slide-deck idea."
+  metrics:
+    - value: "Built"
+      label: "Working, not theoretical"
+    - value: "0"
+      label: "Extra headcount needed"
+  scope: [Systems Thinking, AI Integration, Process Design]

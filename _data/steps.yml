@@ -1,0 +1,35 @@
+- n: "01"
+  phase: Listen
+  accent: coral
+  summary: "Every project starts with a conversation about what's really going on, not just what you think you need."
+  body: "Before I scope anything, I spend time understanding the situation from a few angles — what's actually happening, who it affects, and what's already been tried. The first ask is rarely the full picture."
+
+- n: "02"
+  phase: Discover
+  accent: teal
+  summary: "I find out what's actually true, not just what the brief assumes."
+  body: "I don't skip straight to solutions. This is a proper piece of work — talking to the right people, looking at what's already there, and understanding the real constraints. The real problem is almost never exactly what was first described."
+
+- n: "03"
+  phase: Map
+  accent: amber
+  summary: "I connect what I found to where it actually happens in your business."
+  body: "I map the end-to-end journey — across every touchpoint, not just the one that prompted the conversation. This is where the moments that actually matter become visible, before anything gets built."
+
+- n: "04"
+  phase: Design
+  accent: coral
+  summary: "The thinking and the words take shape together, not handed off in stages."
+  body: "I design in rough form until the idea is right, then build it up as confidence grows. I share work often rather than disappearing and revealing something at the end."
+
+- n: "05"
+  phase: Validate
+  accent: teal
+  summary: "Nothing ships on opinion — including mine."
+  body: "Wherever it matters, I test ideas with real people before going further. Not just at the end, and not just to confirm I was right."
+
+- n: "06"
+  phase: Deliver & Measure
+  accent: amber
+  summary: "It goes live, and its impact gets tracked against what it was meant to change."
+  body: "I stay close through the build, not just the design. I agree what success looks like before starting, so we can both tell honestly whether it worked."

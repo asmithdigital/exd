@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="{{ '/' | relative_url }}" class="brand">Andrew Smith</a>
+
+    <nav class="primary-nav">
+      {% for item in site.data.nav %}
+        <a href="{{ item.url | relative_url }}"{% if page.nav_id == item.id %} class="active"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="nav-actions">
+      <a href="{{ '/admin/login.html' | relative_url }}" class="owner-login">Owner login</a>
+      <a href="{{ '/#contact' | relative_url }}" class="btn btn-dark">Get in touch</a>
+
+      <details class="mobile-nav">
+        <summary aria-label="Toggle navigation menu">☰</summary>
+        <div class="mobile-panel">
+          {% for item in site.data.nav %}
+            <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+          {% endfor %}
+          <a href="{{ '/#contact' | relative_url }}">Get in touch</a>
+          <a href="{{ '/admin/login.html' | relative_url }}">Owner login</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+title: Andrew Smith
+description: I help businesses figure out what's actually worth building next — websites, customer experience, and AI, made simple. One relationship, not five vendors.
+url: "https://asmithdigital.github.io"
+baseurl: "/exd"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Everything under /admin is the internal tool — plain static HTML/JS,
+# not part of the Jekyll page build, but still served by GitHub Pages.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
